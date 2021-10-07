@@ -13,7 +13,13 @@ mod_pfr_summary_screen_ui <- function(id){
   tagList(
     fluidRow(
         column(8, h1("Test Data Sheet")),
-        column(8, rHandsontableOutput(ns("rtable1")))
+#        column(8, rHandsontableOutput(ns("rtable1")))
+        column(12, sliderInput(inputId = ns("bins"),
+                      label = "Number of bins:",
+                      min = 1,
+                      max = 50,
+                      value = 30)),
+        column(12, plotOutput(outputId = ns("distPlot")))
     )
   )
 }
@@ -25,36 +31,16 @@ mod_pfr_summary_screen_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
-# TEMP BAD CODE - for demo purposes
-pfr_df <- data.frame("Project ID" = 1:10,
-                     "Fund Code" = 1:10,
-                     "Department" = letters[1:10],
-                     "PI" = letters[1:10],
-                     "Sponsor" = letters[1:10],
-                     "Title" = letters[1:10],
-                     "Reference Award Number" = 1:10,
-                     "Start Date" = seq(from = Sys.Date(), by = "days", length.out = 10),
-                     "End Date" = seq(from = Sys.Date(), by = "days", length.out = 10),
-                     "Status" = letters[1:10],
-                     "F and A Rate" = 1:10,
-                     "Total Revenue" = 1:10,
-                     "Budget" = 1:10,
-                     "Total Expenses" = 1:10,
-                     "Balance" = 1:10,
-                     "Encumbrance" = 1:10,
-                     "Available Balance" = 1:10,
-                     "Costsharing" = 1:10,
-                     "Balance after Cost Sharing" = 1:10,
-                     check.names = FALSE
-        )
+    # test output - works. Put in module server
+    output$distPlot <- renderPlot({
+        x    <- faithful$waiting
+            bins <- seq(min(x), max(x), length.out = input$bins + 1)
 
-pfr_table <- rhandsontable(pfr_df, rowHeaders = NULL)
+            hist(x, breaks = bins, col = "#75AADB", border = "white",
+                          xlab = "Waiting time to next eruption (in mins)",
+                                   main = "Histogram of waiting times")
+                })
 
-
-    output$rtable1 <- renderRHandsontable({
-        return(pfr_table)
-    })
- 
   })
 }
     

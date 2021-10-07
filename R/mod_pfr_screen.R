@@ -7,18 +7,13 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
+#' @import rhandsontable
 mod_pfr_screen_ui <- function(id){
   ns <- NS(id)
   tagList(
     fluidRow(
         h1("Project Financial Report"),
-#                column(12, rHandsontableOutput("pfr_rtable"))
-        column(12, sliderInput(inputId = ns("bins"),
-                      label = "Number of bins:",
-                      min = 1,
-                      max = 50,
-                      value = 30)),
-        column(12, plotOutput(outputId = ns("distPlot")))
+        column(12, rHandsontableOutput(ns("pfr_table_1")))
     )
   )
 }
@@ -29,16 +24,36 @@ mod_pfr_screen_ui <- function(id){
 mod_pfr_screen_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-    # test output - works. Put in module server
-    output$distPlot <- renderPlot({
-        x    <- faithful$waiting
-            bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-            hist(x, breaks = bins, col = "#75AADB", border = "white",
-                          xlab = "Waiting time to next eruption (in mins)",
-                                   main = "Histogram of waiting times")
-                })
  
+# TEMP BAD CODE - for demo purposes
+pfr_df <- data.frame("Project ID" = 1:20,
+                     "Fund Code" = 1:20,
+                     "Department" = letters[1:20],
+                     "PI" = letters[1:20],
+                     "Sponsor" = letters[1:20],
+                     "Title" = letters[1:20],
+                     "Reference Award Number" = 1:20,
+                     "Start Date" = seq(from = Sys.Date(), by = "days", length.out = 20),
+                     "End Date" = seq(from = Sys.Date(), by = "days", length.out = 20),
+                     "Status" = letters[1:20],
+                     "F and A Rate" = 1:20,
+                     "Total Revenue" = 1:20,
+                     "Budget" = 1:20,
+                     "Total Expenses" = 1:20,
+                     "Balance" = 1:20,
+                     "Encumbrance" = 1:20,
+                     "Available Balance" = 1:20,
+                     "Costsharing" = 1:20,
+                     "Balance after Cost Sharing" = 1:20,
+                     check.names = FALSE
+        )
+
+pfr_table <- rhandsontable(pfr_df, rowHeaders = NULL)
+
+
+    output$pfr_table_1 <- renderRHandsontable({
+        return(pfr_table)
+    })
   })
 }
     

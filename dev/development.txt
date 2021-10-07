@@ -55,6 +55,7 @@ into different states. Or another api layer call.
 * HERE: Refactor so app_ui/server are main bs4Dash interface. Then figure out
     how to have temp dataset/df. Maybe w/ fn? In /R, this should be visible to
     whole dir. to use, no?
+    * NOTE: Using temp df within server fns for now. Not good practice.
 
 * Going to keep mod_sidebarMenu for now, just in case I can abstract this away.
     The only thing to keep in mind is using the input$id for sidebarMenu
@@ -64,6 +65,11 @@ into different states. Or another api layer call.
 * HERE: Turn fluidRows in pfr_screen to Boxes. Read boxes docs on bs4Dash.
     Then try rhandsontable. Try rhands w/ pfr_summary page
 
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+PFR Screen
+* Add boxes
+* Add search for proj., and start dates?
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
