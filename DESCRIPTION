@@ -1,0 +1,21 @@
+Package: ams
+Title: Award Management System enterprise application
+Version: 0.0.0.9000
+Authors@R: person('Jun', 'Hernandez', email = 'Jun.Hernandez@cshs.org', role = c('cre', 'aut'))
+Description: AMS app using PostgreSQL database
+License: What license is it under?
+Imports: 
+    attempt,
+    bs4Dash (>= 2.0.3),
+    config (>= 0.3.1),
+    DT,
+    glue,
+    golem (>= 0.3.1),
+    htmltools,
+    rhandsontable,
+    shiny (>= 1.6.0)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Remotes: 
+    RinteRface/bs4Dash
