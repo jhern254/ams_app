@@ -62,7 +62,7 @@ into different states. Or another api layer call.
     for portfolio template view.
 
 * HERE: Turn fluidRows in pfr_screen to Boxes. Read boxes docs on bs4Dash.
-    Then try rhandsontable. Trye rhands w/ pfr_summary page
+    Then try rhandsontable. Try rhands w/ pfr_summary page
 
 
 ------------------------------------------------------------------------------
