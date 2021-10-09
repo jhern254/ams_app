@@ -19,7 +19,7 @@ mod_pfr_screen_ui <- function(id){
         width = 12,         
         height = "2500px",
         solidHeader = TRUE,
-        background = "primary",  
+        background = "lightblue",  
         closable = FALSE,
         maximizable = TRUE,
         dteditmodUI(ns("pfr_table_1"))
