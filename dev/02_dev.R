@@ -17,7 +17,8 @@
 ## Add one line by package you want to add as dependency
 usethis::use_package( "thinkr" )
 usethis::use_dev_package( "bs4Dash" )
-usethis::use_package( "rhandsontable" )
+usethis::use_dev_package( "DTedit" , remote = "DavidPatShuiFong/DTedit")
+
 
 
 ## Add modules ----
