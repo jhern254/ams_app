@@ -77,6 +77,7 @@ into different states. Or another api layer call.
     LGTM - have to check if works well w/ bs4Dash. 
     Other option is custom DT w/ CRUD models, see DT RStudio docs
 
+
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 PFR Screen
@@ -85,7 +86,9 @@ PFR Screen
 
 BUGS:
 * rhands table doesn't have scroll capabilities?
-    HERE: Think about this. Can I have 2nd page? How to get more data?
+    Think about this. Can I have 2nd page? How to get more data?
+
+* HERE: Try datatable.call in docs for styling
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 BUGS:

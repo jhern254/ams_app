@@ -7,7 +7,6 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-#' @import rhandsontable
 mod_pfr_summary_screen_ui <- function(id){
   ns <- NS(id)
   tagList(

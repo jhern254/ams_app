@@ -64,6 +64,11 @@ app_ui <- function(request) {
                         column(3, textInput("firstname", "Personnel First Name")),
                         column(9, textInput("lastname", "Personnel Last Name")),
                         column(3, actionButton("submitPers", "Search Personnel"))
+                    ),
+                    box(
+                        title = "test",
+                        width = 11,
+                        uiOutput("pers_table_1")
                     )
                 ),
                 tabItem(

@@ -7,7 +7,7 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-#' @import rhandsontable
+#' @import DTedit
 mod_pfr_screen_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -16,13 +16,13 @@ mod_pfr_screen_ui <- function(id){
     ),
     box(
         title = "PFR",
-        width = 11,         # 12 gives 2nd scroll bar
-        height = "500px",
+        width = 12,         
+        height = "1300px",
         solidHeader = TRUE,
-#        background = "gray-dark",  # TODO: use after changing to DTedit tables
+        background = "secondary",  
         closable = FALSE,
         maximizable = TRUE,
-        rHandsontableOutput(ns("pfr_table_1"))
+        dteditmodUI(ns("pfr_table_1"))
     )
 
   )
@@ -31,13 +31,14 @@ mod_pfr_screen_ui <- function(id){
 
 #' pfr_screen Server Functions
 #'
+#' @import DTedit
 #' @noRd 
 mod_pfr_screen_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
  
-# TEMP BAD CODE - for demo purposes
-pfr_df <- data.frame("Project ID" = 1:26,
+# temp code
+    pfr_df <- data.frame("Project ID" = 1:26,
                      "Fund Code" = 1:26,
                      "Department" = letters[1:26],
                      "PI" = letters[1:26],
@@ -57,15 +58,36 @@ pfr_df <- data.frame("Project ID" = 1:26,
                      "Costsharing" = 1:26,
                      "Balance after Cost Sharing" = 1:26,
                      check.names = FALSE
-        )
+    )
 
-# set height
-pfr_table <- rhandsontable(pfr_df, rowHeaders = NULL, height = 450)
+    # DTedit module object
+    pfr_out <- callModule(
+        dteditmod,
+        id =  "pfr_table_1",
+        thedata = pfr_df,
+        datatable.options = list(scrollX = TRUE,       # class = 'cell-border stripe'
+                                 autoWidth = TRUE,
+        columnDefs = list(list(className = 'dt-center', targets = 3)),
+        class = 'cell-border stripe') # none of this works. Try datatable.call()
+    )
 
 
-    output$pfr_table_1 <- renderRHandsontable({
-        return(pfr_table)
-    })
+
+# NOT WORKING - dtedit obj. not working w/ ns("id")
+#    pfr_out <- DTedit::dtedit(
+#        input, output,
+#        name = 'pfr_table_1',
+#        thedata = pfr_df
+#    )
+#
+#        input, output,
+#        name = 'pfr_table_1',
+#        thedata = mydata)
+#    
+#    observeEvent(pfr_out$thedata, {
+#        message(pfr_out$thedata)
+#      })
+
   })
 }
     
