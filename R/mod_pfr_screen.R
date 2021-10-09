@@ -12,14 +12,14 @@ mod_pfr_screen_ui <- function(id){
   ns <- NS(id)
   tagList(
     fluidRow(
-        h1("Project Financial Report"),
+        h2("Project Financial Report"),
     ),
     box(
         title = "PFR",
         width = 12,         
-        height = "1300px",
+        height = "2500px",
         solidHeader = TRUE,
-        background = "secondary",  
+        background = "primary",  
         closable = FALSE,
         maximizable = TRUE,
         dteditmodUI(ns("pfr_table_1"))
