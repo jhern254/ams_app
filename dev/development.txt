@@ -1,9 +1,15 @@
 # App Progress Note file
+TODO: 
+* Run rhandsontable demo's to see how it behaves in shiny. Having problems,
+    such as no scroll
 
 General: 
 * Does rhandsontable only use data.frames()? 
 * Is rhandsontable used enough to inhibit @imports? Or should I use 
 namescope :: syntax?
+* UI will have many screens w/ unique fns for now. When the app is more
+    along development, may combine screens/refactor UI. 
+* Need undo button
 
 Design Decisions:
 * I have decided to put an extra layer on the app api and shift the menu UI
@@ -55,6 +61,7 @@ into different states. Or another api layer call.
 * HERE: Refactor so app_ui/server are main bs4Dash interface. Then figure out
     how to have temp dataset/df. Maybe w/ fn? In /R, this should be visible to
     whole dir. to use, no?
+    * NOTE: Using temp df within server fns for now. Not good practice.
 
 * Going to keep mod_sidebarMenu for now, just in case I can abstract this away.
     The only thing to keep in mind is using the input$id for sidebarMenu
@@ -62,9 +69,26 @@ into different states. Or another api layer call.
     for portfolio template view.
 
 * HERE: Turn fluidRows in pfr_screen to Boxes. Read boxes docs on bs4Dash.
-    Then try rhandsontable. Trye rhands w/ pfr_summary page
+    Then try rhandsontable. Try rhands w/ pfr_summary page
+
+* May not use rhandsontable anymore. Just simple bugs that deter me. 
+    Will see if DTEdit is ok, or a custom DT w/ input modals.
+    Update: Found https://github.com/DavidPatShuiFong/DTedit
+    LGTM - have to check if works well w/ bs4Dash. 
+    Other option is custom DT w/ CRUD models, see DT RStudio docs
 
 
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+PFR Screen
+* Add boxes
+* Add search for proj., and start dates?
+
+BUGS:
+* rhands table doesn't have scroll capabilities?
+    Think about this. Can I have 2nd page? How to get more data?
+
+* HERE: Try datatable.call in docs for styling
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 BUGS:
@@ -76,5 +100,7 @@ BUGS:
 
 * Tried to make test dev scripts, doesn't work. Idk how module files
     even get read by app_ui and app_server.
+
+
 
 
