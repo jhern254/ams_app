@@ -15,7 +15,7 @@
 
 ## Dependencies ----
 ## Add one line by package you want to add as dependency
-usethis::use_package( "thinkr" )
+#usethis::use_package( "thinkr" )
 usethis::use_dev_package( "bs4Dash" )
 usethis::use_dev_package( "DTedit" , remote = "DavidPatShuiFong/DTedit")
 
@@ -27,7 +27,8 @@ golem::add_module( name = "name_of_module1" ) # Name of the module
 golem::add_module( name = "sidebarMenu" ) # Keep for now, just in case I can abstract later
 #golem::add_module(name = "tabItems_menu") # Get rid of. Focus on module screens
 golem::add_module( name = "pfr_screen") # naming convention
-golem::add_module( name = "pfr_summary_screen") # naming convention
+golem::add_module( name = "pfr_summary_screen") 
+golem::add_module( name = "dept_port_screen") 
 
 
 ## Add helper functions ----
