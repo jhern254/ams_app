@@ -7,6 +7,7 @@ General:
 * UI will have many screens w/ unique fns for now. When the app is more
     along development, may combine screens/refactor UI. 
 * Need undo button
+* Make font cleaner, easier to read. Maybe custom? 
 
 
 ------------------------------------------------------------------------------
