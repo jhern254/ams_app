@@ -1,21 +1,8 @@
-#' @import shiny
-#' @import bs4Dash
-# these need fns to run?
+golem::detach_all_attached()
+golem::document_and_reload()
 
-# app skeleton
-if(TRUE) {
-app  <- shinyApp(
-ui = fluidPage(
-    textInput("label", "label")
-#ui = dashboardPage(
-#    header = dashboardHeader(),
-#    sidebar = dashboardSidebar(),
-#    body = dashboardBody()
-),
-server = function(input, output, session) {
-
+ui <- mod_dept_port_screen_ui("dept_port_screen_ui_1")
+server <- function(input, output, session) {
+    callModule(mod_dept_port_screen_server, "dept_port_screen_ui_1", session)
 }
-)
-runApp(app, port=7777)
-}
-
+shinyApp(ui, server)

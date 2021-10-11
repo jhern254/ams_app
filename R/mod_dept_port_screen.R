@@ -7,6 +7,8 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
+#' @import bs4Dash
+#' @import DTedit
 mod_dept_port_screen_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -20,8 +22,8 @@ mod_dept_port_screen_ui <- function(id){
         solidHeader = TRUE,
         background = "lightblue",  
         closable = FALSE,
-        maximizable = TRUE
-#        dteditmodUI(ns("portfolio_table_1"))
+        maximizable = TRUE,
+        dteditmodUI(ns("portfolio_table_1"))
     )
  
   )
@@ -35,7 +37,20 @@ mod_dept_port_screen_server <- function(id){
     ns <- session$ns
  
 # TEMP CODE
+
+    port_df <- as.data.frame(dept_portfolio_data)
     
+    port_out <- callModule(
+        dteditmod,
+        id =  "portfolio_table_1",
+        thedata = port_df,
+        datatable.options = list(scrollX = TRUE,       # class = 'cell-border stripe'
+                                 autoWidth = TRUE,
+        columnDefs = list(list(className = 'dt-center', targets = 3)),
+        class = 'cell-border stripe') # none of this works. Try datatable.call()
+    )
+
+#    print(str(dept_portfolio_data))
 
 
 
