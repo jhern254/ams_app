@@ -12,9 +12,18 @@ app_ui <- function(request) {
     # Your application UI logic 
     dashboardPage(
         title = "AMS Dashboard",
-        header = dashboardHeader(),
+        header = dashboardHeader(
+                    title = dashboardBrand(
+                        title = ".",
+                        color = "gray-dark",
+                        image = "https://www.cedars-sinai.org/content/dam/cedars-sinai/brand/brand-content-logo.png" 
+                        ),
+                    status = "gray-dark"
+                    ),
         sidebar = dashboardSidebar(
                     expandOnHover = FALSE,
+                    skin = "dark",
+                    width = "220px",
                     sidebarUserPanel(
                         name = "Award Management System"
                     ),
@@ -76,7 +85,12 @@ app_ui <- function(request) {
                     h1("Financial Sheet")
                 )
             )
-        )        
+        ),
+        controlbar = dashboardControlbar(
+              collapsed = TRUE,
+              div(class = "p-3", skinSelector()),
+              pinned = FALSE 
+            )
 
 # enter more DashboardPage fns here...
     )
