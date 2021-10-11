@@ -1,22 +1,19 @@
 # App Progress Note file
 TODO: 
-* Run rhandsontable demo's to see how it behaves in shiny. Having problems,
-    such as no scroll
 
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 General: 
-* Does rhandsontable only use data.frames()? 
-* Is rhandsontable used enough to inhibit @imports? Or should I use 
-namescope :: syntax?
 * UI will have many screens w/ unique fns for now. When the app is more
     along development, may combine screens/refactor UI. 
 * Need undo button
 
-Design Decisions:
-* I have decided to put an extra layer on the app api and shift the menu UI
-into different states. Or another api layer call.
-# states are important.  Markov chains. The future.
 
-* TODO: Have to figure out how to fix 8: replacing previous import ‘bs4Dash::column’ by ‘shiny::column’ when loading ‘ams’
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Design Decisions:
+* TODO: Have to figure out how to fix 8: replacing previous import 
+                    ‘bs4Dash::column’ by ‘shiny::column’ when loading ‘ams’
     Do I need to put bs4Dash in a name scope? No, makes no sense.
     So I can try to put @import bs4Dash in the right space?
     Figure out.
@@ -28,7 +25,7 @@ into different states. Or another api layer call.
     tabItem(), but the developer user doesn't have to know that. 
     module(tabItems_menu) => mod_tabItems_menu, which splits into 
     mod_tabItems_menu_ui and mod_tabItems_menu_server.
-    - DONE
+    - Update: doesn't work
 
 * Going to make pfr_df var that sets up temporary test data, that I can 
     turn into a rhandsontable object. This can be called throughout 
@@ -42,15 +39,6 @@ into different states. Or another api layer call.
     I will have to study how to use modules within modules, or follow a simple
     structure. I cannot be too advanced unless I really understand R packages.
 
-* Have to fix mod_tabItems_menu_ui. How to put module inside module?
-    Or just have everything up front in app ui, and figure out good module
-    abstraction
-
-* Might have to refactor and just put overall structure in app_ui, then use
-    modules to do specific pages, like pfr. Also, server fn is either not working
-    or I can't put test df in server. Either refactor and test w/ renderTable,
-    or make test module file somehow. 
-
 * After a bit of testing, the api layer works, but is not good design. I am 
     combining two layers of abstraction, the bs4Dash UI and the pages. It's
     better to have pages abstracted away from the api layer, but this would
@@ -58,7 +46,7 @@ into different states. Or another api layer call.
     choice atm. So I can have a single layer(main) of app ui/server, with 
     bs4Dash, and each individual page, maybe a fluidRow, or bs4Dash::tabItem().
 
-* HERE: Refactor so app_ui/server are main bs4Dash interface. Then figure out
+* Refactor so app_ui/server are main bs4Dash interface. Then figure out
     how to have temp dataset/df. Maybe w/ fn? In /R, this should be visible to
     whole dir. to use, no?
     * NOTE: Using temp df within server fns for now. Not good practice.
@@ -69,7 +57,6 @@ into different states. Or another api layer call.
     for portfolio template view.
 
 * HERE: Turn fluidRows in pfr_screen to Boxes. Read boxes docs on bs4Dash.
-    Then try rhandsontable. Try rhands w/ pfr_summary page
 
 * May not use rhandsontable anymore. Just simple bugs that deter me. 
     Will see if DTEdit is ok, or a custom DT w/ input modals.
@@ -84,10 +71,8 @@ PFR Screen
 * Add boxes
 * Add search for proj., and start dates?
 
-BUGS:
-* rhands table doesn't have scroll capabilities?
-    Think about this. Can I have 2nd page? How to get more data?
 
+BUGS:
 * HERE: Try datatable.call in docs for styling
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -99,7 +84,7 @@ BUGS:
     only work on the /R dir? After testing, maybe only module files?
 
 * Tried to make test dev scripts, doesn't work. Idk how module files
-    even get read by app_ui and app_server.
+    even get read by app_ui and app_server, nor how to test them.
 
 
 
