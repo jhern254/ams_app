@@ -22,6 +22,11 @@ mod_pfr_screen_ui <- function(id){
         background = "lightblue",  
         closable = FALSE,
         maximizable = TRUE,
+        sidebar = boxSidebar(
+            id = "mycardsidebar",
+            width = 25,
+            textInput("other", "Input other options")
+        ),
         dteditmodUI(ns("pfr_table_1"))
     )
 
