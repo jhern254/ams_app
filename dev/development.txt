@@ -65,6 +65,7 @@ Design Decisions:
     LGTM - have to check if works well w/ bs4Dash. 
     Other option is custom DT w/ CRUD models, see DT RStudio docs
 
+* Added README
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
