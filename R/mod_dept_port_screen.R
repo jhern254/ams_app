@@ -16,6 +16,15 @@ mod_dept_port_screen_ui <- function(id){
         h2("Department Portfolio"),
     ),
     box(
+        title = "Search PI",
+        width = 12,
+        solidHeader = TRUE,     # what does this do?
+        background = "primary",  
+        closable = FALSE,
+        selectInput("pi", "Select PI", choices = unique(dept_portfolio_data$last_name)),
+        selectInput("projid", "Select ProjectID", choices = NULL)
+    ),
+    box(
         title = "Portfolio",
         width = 12,         
         height = "2500px",
@@ -29,6 +38,7 @@ mod_dept_port_screen_ui <- function(id){
   )
 }
     
+
 #' dept_port_screen Server Functions
 #'
 #' @noRd 
@@ -38,8 +48,8 @@ mod_dept_port_screen_server <- function(id){
  
 # TEMP CODE
 
-#    port_df <- readr::read_rds(dept_portfolio_data)
-    port_df <- as.data.frame(dept_portfolio_data)
+#    port_df <- readr::read_rds('./sysdata.rda')    # doesn't work
+    port_df <- data.frame(dept_portfolio_data)
     
     port_out <- callModule(
         dteditmod,
