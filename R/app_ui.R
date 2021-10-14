@@ -122,5 +122,3 @@ golem_add_external_resources <- function(){
   )
 }
 
-#' Notes section:
-#' (See if this is ok, or if I should put in README file. How do I track my work?)

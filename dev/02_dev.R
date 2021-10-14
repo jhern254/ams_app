@@ -18,6 +18,7 @@
 #usethis::use_package( "thinkr" )
 usethis::use_dev_package( "bs4Dash" )
 usethis::use_dev_package( "DTedit" , remote = "DavidPatShuiFong/DTedit")
+usethis::use_package( "readr" )
 
 
 

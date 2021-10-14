@@ -38,6 +38,7 @@ mod_dept_port_screen_server <- function(id){
  
 # TEMP CODE
 
+#    port_df <- readr::read_rds(dept_portfolio_data)
     port_df <- as.data.frame(dept_portfolio_data)
     
     port_out <- callModule(
