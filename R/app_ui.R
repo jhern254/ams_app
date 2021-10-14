@@ -12,9 +12,18 @@ app_ui <- function(request) {
     # Your application UI logic 
     dashboardPage(
         title = "AMS Dashboard",
-        header = dashboardHeader(),
+        header = dashboardHeader(
+                    title = dashboardBrand(
+                        title = ".",
+                        color = "gray-dark",
+                        image = "https://www.cedars-sinai.org/content/dam/cedars-sinai/brand/brand-content-logo.png" 
+                        ),
+                    status = "gray-dark"
+                    ),
         sidebar = dashboardSidebar(
                     expandOnHover = FALSE,
+                    skin = "dark",
+                    width = "220px",
                     sidebarUserPanel(
                         name = "Award Management System"
                     ),
@@ -37,10 +46,10 @@ app_ui <- function(request) {
                             tabName = "pers1",
                             icon = icon("id-badge")
                         ),
-                        sidebarHeader("Project Details"),
+                        sidebarHeader("Portfolios"),
                         menuItem(
-                            "Financial Sheet",
-                            tabName = "fin_screen1",
+                            "Portfolio Details",
+                            tabName = "dept_portfolio",
                             icon = icon("chart-line")
                         )
                     )
@@ -72,11 +81,16 @@ app_ui <- function(request) {
                     )
                 ),
                 tabItem(
-                    tabName = "fin_screen1",
-                    h1("Financial Sheet")
+                    tabName = "dept_portfolio",
+                    mod_dept_port_screen_ui("dept_port_screen_ui_1")
                 )
             )
-        )        
+        ),
+        controlbar = dashboardControlbar(
+              collapsed = TRUE,
+              div(class = "p-3", skinSelector()),
+              pinned = FALSE 
+            )
 
 # enter more DashboardPage fns here...
     )
@@ -108,5 +122,3 @@ golem_add_external_resources <- function(){
   )
 }
 
-#' Notes section:
-#' (See if this is ok, or if I should put in README file. How do I track my work?)
