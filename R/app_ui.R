@@ -46,10 +46,10 @@ app_ui <- function(request) {
                             tabName = "pers1",
                             icon = icon("id-badge")
                         ),
-                        sidebarHeader("Project Details"),
+                        sidebarHeader("Portfolios"),
                         menuItem(
-                            "Financial Sheet",
-                            tabName = "fin_screen1",
+                            "Portfolio Details",
+                            tabName = "dept_portfolio",
                             icon = icon("chart-line")
                         )
                     )
@@ -81,8 +81,8 @@ app_ui <- function(request) {
                     )
                 ),
                 tabItem(
-                    tabName = "fin_screen1",
-                    h1("Financial Sheet")
+                    tabName = "dept_portfolio",
+                    mod_dept_port_screen_ui("dept_port_screen_ui_1")
                 )
             )
         ),
@@ -122,5 +122,3 @@ golem_add_external_resources <- function(){
   )
 }
 
-#' Notes section:
-#' (See if this is ok, or if I should put in README file. How do I track my work?)

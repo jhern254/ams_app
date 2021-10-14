@@ -13,10 +13,13 @@ Imports:
     glue,
     golem (>= 0.3.1),
     htmltools,
+    readr,
     shiny (>= 1.6.0)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Remotes:  
+Remotes: 
     RinteRface/bs4Dash,
     DavidPatShuiFong/DTedit
+Depends: 
+    R (>= 2.10)

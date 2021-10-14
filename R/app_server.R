@@ -10,6 +10,9 @@ app_server <- function( input, output, session ) {
 
     mod_pfr_summary_screen_server("pfr_summary_screen_ui_1")
 
+    mod_dept_port_screen_server("dept_port_screen_ui_1")
+
+
     # temp code - DELETE when done
     temp_out <- dtedit(
         input, output,
