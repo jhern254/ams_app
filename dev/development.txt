@@ -78,6 +78,14 @@ BUGS:
 * HERE: Try datatable.call in docs for styling
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
+Department Portolio Screen
+* HERE: Have to figure out how to have updateTab value to pass one level up
+    to update the Project PI tab/screen when a PI is selected on this screen.
+
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
 BUGS:
 * You have to remove in NAMESPACE the @import if you accidentally typod. 
     Just delete it and rerun roxygen2 package check when running.
