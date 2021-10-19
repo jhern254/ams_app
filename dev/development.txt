@@ -1,5 +1,37 @@
 # App Progress Note file
 TODO: 
+* Add exception handling(asserts, try/catch)
+* Add tests - even some small ones
+* Work on code coverage
+* HERE: ****************
+    Have new clean pfr_db data. Upload to db and update constraints on pfr_staging
+    Delete tables and rerun w/ new constraints
+
+* Gitignore this file. The reason it doesn't work is because it's already 
+    committed. Need to delete this then recommit? Meh, just rename cp dev.txt
+
+Road Map:
+* Connect R to db
+    * Show staging_pfr on PFR screen
+* Fix db view and insert data from staging table, get data to db tables
+    * Write views. Make sure PFR, PFR Summary, Port. Details Views work.
+        Then write other ones I can't test, like expenses, etc.
+    * Connect app to view instead of staging table, utilize query
+    * Make insert trigger, then update, delete later
+* Add data cleaning pipeline to insert csv
+    * Add unit tests(some already written)
+    * Add edge cases (if time)
+* Write common queries tab (PFR ONLY)
+    * How to see in app? Drop down then listing? 
+    Switch(query1, query2, ...)
+    Output
+    ?
+    Actually, this might be a good idea to have a test tab for queries anyway
+
+* Dynamic UI page, portfolio details and PI port., financial sheet
+
+
+
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -72,6 +104,12 @@ Design Decisions:
 PFR Screen
 * Add boxes
 * Add search for proj., and start dates?
+* HERE: Going to add in data cleaning backend functionality. 
+    With this, I'm going to have TEMP code to replace data frame w/ 
+    csv uploaded df, just to see if data cleaning pipeline works. This is temp,
+    since the csv will go thru pipeline, then straight to db, since
+    SQL db handles INSERTS, UPDATES, and DELETES better than writing in R.
+    Can try this w/ a DEBUG if statement, if (DEBUG_csv) then dtedit(csv_df)
 
 
 BUGS:
