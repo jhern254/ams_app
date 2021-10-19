@@ -19,6 +19,8 @@
 usethis::use_dev_package( "bs4Dash" )
 usethis::use_dev_package( "DTedit" , remote = "DavidPatShuiFong/DTedit")
 usethis::use_package( "readr" )
+usethis::use_package( "stringr" )
+usethis::use_package( "vroom" )
 
 
 
@@ -36,6 +38,7 @@ golem::add_module( name = "dept_port_screen")
 ## Creates fct_* and utils_*
 golem::add_fct( "helpers" ) 
 golem::add_utils( "helpers" )
+golem::add_fct("data_validation")
 
 ## External resources
 ## Creates .js and .css files at inst/app/www
