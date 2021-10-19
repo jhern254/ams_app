@@ -19,13 +19,14 @@ mod_pfr_screen_ui <- function(id){
         width = 12,         
         height = "2500px",
         solidHeader = TRUE,
-        background = "lightblue",  
+        background = "danger",  
         closable = FALSE,
         maximizable = TRUE,
         sidebar = boxSidebar(
             id = "mycardsidebar",
             width = 25,
-            textInput("other", "Input other options")
+            textInput("other", "Input other options"),
+            fileInput("upload", "Upload PFR.csv")
         ),
         dteditmodUI(ns("pfr_table_1"))
     )
