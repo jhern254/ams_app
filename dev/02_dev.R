@@ -53,6 +53,7 @@ usethis::use_data_raw( name = "dept_portfolio", open = FALSE )
 ## Tests ----
 ## Add one line by test you want to create
 usethis::use_test( "app" )
+usethis::use_test("data_validation")
 
 # Documentation
 

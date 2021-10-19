@@ -13,6 +13,7 @@ Imports:
     glue,
     golem (>= 0.3.1),
     htmltools,
+    processx,
     readr,
     shiny (>= 1.6.0),
     stringr,
@@ -25,3 +26,6 @@ Remotes:
     DavidPatShuiFong/DTedit
 Depends: 
     R (>= 2.10)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
