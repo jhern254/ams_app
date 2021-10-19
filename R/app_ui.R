@@ -18,11 +18,12 @@ app_ui <- function(request) {
                         color = "gray-dark",
                         image = "https://www.cedars-sinai.org/content/dam/cedars-sinai/brand/brand-content-logo.png" 
                         ),
-                    status = "gray-dark"
+                    status = "secondary"
                     ),
         sidebar = dashboardSidebar(
                     expandOnHover = FALSE,
                     skin = "dark",
+                    status = "danger",
                     width = "220px",
                     sidebarUserPanel(
                         name = "Award Management System"
