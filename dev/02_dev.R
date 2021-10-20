@@ -21,6 +21,7 @@ usethis::use_dev_package( "DTedit" , remote = "DavidPatShuiFong/DTedit")
 usethis::use_package( "readr" )
 usethis::use_package( "stringr" )
 usethis::use_package( "vroom" )
+usethis::use_package( "tools" )
 
 
 

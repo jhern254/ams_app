@@ -17,6 +17,7 @@ Imports:
     readr,
     shiny (>= 1.6.0),
     stringr,
+    tools,
     vroom
 Encoding: UTF-8
 LazyData: true

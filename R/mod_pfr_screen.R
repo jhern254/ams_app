@@ -26,7 +26,7 @@ mod_pfr_screen_ui <- function(id){
             id = "mycardsidebar",
             width = 25,
             textInput("other", "Input other options"),
-            fileInput("upload", "Upload PFR.csv")
+            fileInput("upload", "Upload PFR.csv", width = '375px')
         ),
         dteditmodUI(ns("pfr_table_1"))
     )
@@ -65,6 +65,20 @@ mod_pfr_screen_server <- function(id){
                      "Balance after Cost Sharing" = 1:26,
                      check.names = FALSE
     )
+
+    csv <- reactive({
+        req(input$upload)
+
+        ext <- tools::file_ext(input$upload$name)
+#        print("File is : ") 
+#        print(ext) # what is this? Need to output
+#        if(ext == csv)
+
+        # should I write an observeEvent to print debug stuff out?
+        # How do I test and see outputs?
+        # Figure out how to use testthat too
+
+    })
 
     # DTedit module object
     pfr_out <- callModule(
