@@ -27,8 +27,9 @@ mod_pfr_screen_ui <- function(id){
             width = 25,
             textInput("other", "Input other options"),
             fileInput("upload", "Upload PFR.csv", width = '375px')
-        ),
-        dteditmodUI(ns("pfr_table_1"))
+        )
+#        dteditmodUI(ns("pfr_table_1"))
+#        tableOutput("head")    # for testing
     )
 
   )
@@ -70,6 +71,11 @@ mod_pfr_screen_server <- function(id){
         req(input$upload)
 
         ext <- tools::file_ext(input$upload$name)
+        switch(ext,
+            csv = vroom::vroom(input$upload$datapath, delim = ","),
+            validate("Invalid file; Please upload a .csv file.")
+        )
+
 #        print("File is : ") 
 #        print(ext) # what is this? Need to output
 #        if(ext == csv)
@@ -80,16 +86,25 @@ mod_pfr_screen_server <- function(id){
 
     })
 
+    observeEvent(input$upload, {
+        message("CSV uploaded")
+    })
+
+
+
     # DTedit module object
-    pfr_out <- callModule(
-        dteditmod,
-        id =  "pfr_table_1",
-        thedata = pfr_df,
-        datatable.options = list(scrollX = TRUE,       # class = 'cell-border stripe'
-                                 autoWidth = TRUE,
-        columnDefs = list(list(className = 'dt-center', targets = 3)),
-        class = 'cell-border stripe') # none of this works. Try datatable.call()
-    )
+#    pfr_out <- callModule(
+#        dteditmod,
+#        id =  "pfr_table_1",
+#        thedata = pfr_df,
+#        datatable.options = list(scrollX = TRUE,       # class = 'cell-border stripe'
+#                                 autoWidth = TRUE,
+#        columnDefs = list(list(className = 'dt-center', targets = 3)),
+#        class = 'cell-border stripe') # none of this works. Try datatable.call()
+#    )
+
+
+
 
 
 
