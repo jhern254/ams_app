@@ -9,6 +9,7 @@
 #' @importFrom shiny NS tagList 
 #' @import bs4Dash
 #' @import DTedit
+#' @import dplyr
 mod_template_screen_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -44,6 +45,17 @@ mod_template_screen_ui <- function(id){
 mod_template_screen_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
+
+    # TODO: fix
+    pi_name <- reactive({
+        req(input$pi)
+        filter(dept_portfolio_data, last_name == input$pi)
+    })
+
+    observeEvent(pi_name(), {
+        choices <- unique(pi_name()$project_id)
+        updateSelectInput(inputId = "projid", choices = choices)
+    })
  
   })
 }

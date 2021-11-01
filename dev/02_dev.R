@@ -23,6 +23,8 @@ usethis::use_package( "stringr" )
 usethis::use_package( "vroom" )
 usethis::use_package( "tools" )
 usethis::use_dev_package( "gargoyle" , remote = "ColinFay/gargoyle")
+usethis::use_package( "dplyr" )
+usethis::use_package( "magrittr" )
 
 
 
