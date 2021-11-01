@@ -9,6 +9,8 @@
 #' @importFrom shiny NS tagList 
 #' @import bs4Dash
 #' @import DTedit
+#' @import dplyr
+#' @import margirittr
 mod_pi_port_screen_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -21,18 +23,17 @@ mod_pi_port_screen_ui <- function(id){
         solidHeader = TRUE,     # what does this do?
         background = "danger",  
         closable = FALSE,
-        selectInput("pi", "Select PI", choices = sort(unique(dept_portfolio_data$last_name))),
-        selectInput("projid", "Select ProjectID", choices = NULL)
+        selectInput("pi", "Select PI", choices = sort(unique(dept_portfolio_data$last_name)))
     ),
     box(
         title = "PI Portfolio",
         width = 12,         
-        height = "500px",
+        height = "2500px",
         solidHeader = TRUE,
         background = "danger",  
         closable = FALSE,
-        maximizable = TRUE
-#        dteditmodUI(ns("portfolio_table_1"))
+        maximizable = TRUE,
+        dteditmodUI(ns("portfolio_table_1"))
     )
  
   )
@@ -45,6 +46,29 @@ mod_pi_port_screen_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
  
+
+#------------------------------------------------------------------
+# Box - dept. portfolio data
+# TEMP CODE
+
+    port_df <- data.frame(dept_portfolio_data)
+
+    pi_df <- port_df %>%
+
+    
+    port_out <- callModule(
+        dteditmod,
+        id =  "portfolio_table_1",
+        thedata = pi_df,
+        datatable.options = list(scrollX = TRUE,       # class = 'cell-border stripe'
+                                 autoWidth = TRUE,
+        columnDefs = list(list(className = 'dt-center', targets = 3)),
+        class = 'cell-border stripe') # none of this works. Try datatable.call()
+    )
+
+#    print(str(dept_portfolio_data))
+#------------------------------------------------------------------
+
   })
 }
     

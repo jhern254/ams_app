@@ -35,6 +35,7 @@ golem::add_module( name = "pfr_screen") # naming convention
 golem::add_module( name = "pfr_summary_screen") 
 golem::add_module( name = "dept_port_screen") 
 golem::add_module( name = "pi_port_screen") 
+golem::add_module( name = "template_screen") 
 
 
 ## Add helper functions ----

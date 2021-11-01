@@ -14,6 +14,7 @@ app_server <- function( input, output, session ) {
 
     mod_pi_port_screen_server("pi_port_screen_ui_1")
 
+    mod_template_screen_server("template_screen_ui_1")
 
     # temp code - DELETE when done
     temp_out <- dtedit(

@@ -57,6 +57,11 @@ app_ui <- function(request) {
                             "PI Portfolio",
                             tabName = "pi_portfolio",
                             icon = icon("chart-line")
+                        ),
+                        menuItem(
+                            "Project Details",
+                            tabName = "proj_details",
+                            icon = icon("chart-line")
                         )
                     )
                 ),
@@ -93,6 +98,10 @@ app_ui <- function(request) {
                 tabItem(
                     tabName = "pi_portfolio",
                     mod_pi_port_screen_ui("pi_port_screen_ui_1")
+                ),
+                tabItem(
+                    tabName = "proj_details",
+                    mod_template_screen_ui("template_screen_ui_1")
                 )
             )
         ),
