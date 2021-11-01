@@ -22,30 +22,32 @@ usethis::use_package( "readr" )
 usethis::use_package( "stringr" )
 usethis::use_package( "vroom" )
 usethis::use_package( "tools" )
+usethis::use_dev_package( "gargoyle" , remote = "ColinFay/gargoyle")
 
 
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module( name = "name_of_module1" ) # Name of the module
+#golem::add_module( name = "name_of_module1" ) # Name of the module
 golem::add_module( name = "sidebarMenu" ) # Keep for now, just in case I can abstract later
 #golem::add_module(name = "tabItems_menu") # Get rid of. Focus on module screens
 golem::add_module( name = "pfr_screen") # naming convention
 golem::add_module( name = "pfr_summary_screen") 
 golem::add_module( name = "dept_port_screen") 
+golem::add_module( name = "pi_port_screen") 
 
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
-golem::add_fct( "helpers" ) 
-golem::add_utils( "helpers" )
+#golem::add_fct( "helpers" ) 
+#golem::add_utils( "helpers" )
 golem::add_fct("data_validation")
 
 ## External resources
 ## Creates .js and .css files at inst/app/www
-golem::add_js_file( "script" )
-golem::add_js_handler( "handlers" )
-golem::add_css_file( "custom" )
+#golem::add_js_file( "script" )
+#golem::add_js_handler( "handlers" )
+#golem::add_css_file( "custom" )
 
 ## Add internal datasets ----
 ## If you have data in your package
@@ -53,14 +55,14 @@ usethis::use_data_raw( name = "dept_portfolio", open = FALSE )
 
 ## Tests ----
 ## Add one line by test you want to create
-usethis::use_test( "app" )
+#usethis::use_test( "app" )
 usethis::use_test("data_validation")
 
 # Documentation
 
 ## Vignette ----
-usethis::use_vignette("ams")
-devtools::build_vignettes()
+#usethis::use_vignette("ams")
+#devtools::build_vignettes()
 
 ## Code Coverage----
 ## Set the code coverage service ("codecov" or "coveralls")

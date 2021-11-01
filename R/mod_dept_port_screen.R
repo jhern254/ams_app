@@ -46,6 +46,13 @@ mod_dept_port_screen_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
  
+
+
+
+
+
+#------------------------------------------------------------------
+# Box - dept. portfolio data
 # TEMP CODE
 
 #    port_df <- readr::read_rds('./sysdata.rda')    # doesn't work
@@ -62,6 +69,7 @@ mod_dept_port_screen_server <- function(id){
     )
 
 #    print(str(dept_portfolio_data))
+#------------------------------------------------------------------
 
 
 
