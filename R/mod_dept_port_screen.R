@@ -16,15 +16,6 @@ mod_dept_port_screen_ui <- function(id){
         h2("Department Portfolio"),
     ),
     box(
-        title = "Search PI",
-        width = 12,
-        solidHeader = TRUE,     # what does this do?
-        background = "primary",  
-        closable = FALSE,
-        selectInput("pi", "Select PI", choices = unique(dept_portfolio_data$last_name)),
-        selectInput("projid", "Select ProjectID", choices = NULL)
-    ),
-    box(
         title = "Portfolio",
         width = 12,         
         height = "2500px",

@@ -18,7 +18,7 @@ app_ui <- function(request) {
                         color = "gray-dark",
                         image = "https://www.cedars-sinai.org/content/dam/cedars-sinai/brand/brand-content-logo.png" 
                         ),
-                    status = "secondary"
+                    status = "gray-dark"
                     ),
         sidebar = dashboardSidebar(
                     expandOnHover = FALSE,
@@ -52,6 +52,11 @@ app_ui <- function(request) {
                             "Portfolio Details",
                             tabName = "dept_portfolio",
                             icon = icon("chart-line")
+                        ),
+                        menuItem(
+                            "PI Portfolio",
+                            tabName = "pi_portfolio",
+                            icon = icon("chart-line")
                         )
                     )
                 ),
@@ -84,6 +89,10 @@ app_ui <- function(request) {
                 tabItem(
                     tabName = "dept_portfolio",
                     mod_dept_port_screen_ui("dept_port_screen_ui_1")
+                ),
+                tabItem(
+                    tabName = "pi_portfolio",
+                    mod_pi_port_screen_ui("pi_port_screen_ui_1")
                 )
             )
         ),
